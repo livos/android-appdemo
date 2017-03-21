@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.livos.appdemo"
+        minSdkVersion 18
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    supportLibraryVersion = '25.1.0'
+    daggerVersion = '2.9'
+    mockitoVersion = '2.7.19'
+    espressoVersion = '2.2.2'
+    butterknifeVersion = '8.5.1'
+    robolectricVersion = '3.3.1'
+    junitVersion = '4.12'
+    rxandroidVersion = '2.0.1'
+    rxjavaVersion = '2.0.1'
+    timberVersion = '4.5.1'
+    junitRunnerVersion = '0.5'
+    gsonVersion = '2.7'
+    retrofitVersion = '2.2.0'
+    httpInterceptorVersion = '3.4.2'
+}
+
+dependencies {
+    //Support libraries
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "com.android.support:design:$supportLibraryVersion"
+    compile "com.android.support:support-annotations:$supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
+
+    //rest interactions
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+
+    //JSON Parsing
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile "com.google.code.gson:gson:$gsonVersion"
+
+    //Logging
+    compile "com.jakewharton.timber:timber:$timberVersion"
+
+    //http logging
+    compile "com.squareup.okhttp3:logging-interceptor:$httpInterceptorVersion"
+
+    //Injection
+    apt "com.google.dagger:dagger-compiler:$daggerVersion"
+    compile  "com.google.dagger:dagger:$daggerVersion"
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    //View injection
+    compile "com.jakewharton:butterknife:$butterknifeVersion"
+    apt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+
+    //Reactive programming
+    compile "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+    compile "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+
+    //Testing
+    testCompile "junit:junit:$junitVersion"
+    testCompile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    testCompile "com.android.support:design:$supportLibraryVersion"
+    testCompile "org.mockito:mockito-android:$mockitoVersion"
+    testCompile "org.robolectric:robolectric:$robolectricVersion"
+    androidTestCompile "junit:junit:$junitVersion"
+    androidTestCompile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    androidTestCompile "com.android.support:design:$supportLibraryVersion"
+    androidTestCompile "com.android.support:support-annotations:$supportLibraryVersion"
+    androidTestCompile "com.android.support.test:runner:$junitRunnerVersion"
+    androidTestCompile "com.android.support.test:rules:$junitRunnerVersion"
+    androidTestCompile "org.mockito:mockito-android:$mockitoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-v4'
+    }
+}
