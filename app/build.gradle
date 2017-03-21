@@ -28,8 +28,10 @@ ext {
     butterknifeVersion = '8.5.1'
     robolectricVersion = '3.3.1'
     junitVersion = '4.12'
-    rxandroidVersion = '2.0.1'
-    rxjavaVersion = '2.0.1'
+    //rxandroidVersion = '2.0.1'
+    rxandroidVersion = '1.2.0'
+    //rxjavaVersion = '2.0.1'
+    rxjavaVersion = '1.2.7'
     timberVersion = '4.5.1'
     junitRunnerVersion = '0.5'
     gsonVersion = '2.7'
@@ -43,6 +45,7 @@ dependencies {
     compile "com.android.support:design:$supportLibraryVersion"
     compile "com.android.support:support-annotations:$supportLibraryVersion"
     compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    compile "com.android.support:support-v4:$supportLibraryVersion"
 
     //rest interactions
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -59,16 +62,18 @@ dependencies {
 
     //Injection
     apt "com.google.dagger:dagger-compiler:$daggerVersion"
-    compile  "com.google.dagger:dagger:$daggerVersion"
-    provided 'javax.annotation:jsr250-api:1.0'
+    compile "com.google.dagger:dagger:$daggerVersion"
 
     //View injection
     compile "com.jakewharton:butterknife:$butterknifeVersion"
     apt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
 
     //Reactive programming
-    compile "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
-    compile "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    //compile "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+    //compile "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    //compile "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    compile "io.reactivex:rxandroid:$rxandroidVersion"
+    compile "io.reactivex:rxjava:$rxjavaVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
 
     //Testing
@@ -90,4 +95,6 @@ dependencies {
         exclude module: 'recyclerview-v7'
         exclude module: 'support-v4'
     }
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    provided 'javax.annotation:jsr250-api:1.0'
 }

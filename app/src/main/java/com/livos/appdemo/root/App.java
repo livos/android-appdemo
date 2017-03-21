@@ -2,7 +2,10 @@ package com.livos.appdemo.root;
 
 import android.app.Application;
 
-import com.livos.appdemo.network.ApiModule;
+import com.livos.appdemo.network.ApiModuleForInfo;
+import com.livos.appdemo.network.ApiModuleForName;
+import com.livos.appdemo.topmovies.TopMoviesModule;
+
 
 public class App extends Application {
 
@@ -14,7 +17,9 @@ public class App extends Application {
 
         component = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
-                .apiModule(new ApiModule())
+                .apiModuleForName(new ApiModuleForName())
+                .topMoviesModule(new TopMoviesModule())
+                .apiModuleForInfo(new ApiModuleForInfo())
                 .build();
     }
 
