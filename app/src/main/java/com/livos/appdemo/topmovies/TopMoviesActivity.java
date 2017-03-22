@@ -20,6 +20,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import hugo.weaving.DebugLog;
 
 public class TopMoviesActivity extends AppCompatActivity implements TopMoviesActivityMVP.View {
 
