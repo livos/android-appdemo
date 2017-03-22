@@ -51,17 +51,19 @@ public class TopMoviesRepository implements Repository {
     @Override
     public Observable<Result> getResultsFromNetwork() {
 
+        // Concat 3 results pages
         Observable<TopRated> topRatedObservable = movieApiService.getTopRatedMovies(1).concatWith(movieApiService.getTopRatedMovies(2)).concatWith(movieApiService.getTopRatedMovies(3));
 
+        // concatMap operator preserve the objects order
         return topRatedObservable.concatMap(new Func1<TopRated, Observable<Result>>() {
             @Override
             public Observable<Result> call(TopRated topRated) {
                 return Observable.from(topRated.results);
             }
-        }).doOnNext(new Action1<Result>() {
+        }).doOnNext(new Action1<Result>() { // doOnNewt will be called every time a new item is emitted on our observable stream
             @Override
             public void call(Result result) {
-                results.add(result);
+                results.add(result); // add results to the cache
             }
         });
     }

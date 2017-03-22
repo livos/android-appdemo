@@ -17,9 +17,9 @@ public class App extends Application {
 
         component = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
-                .apiModuleForName(new ApiModuleForName())
-                .topMoviesModule(new TopMoviesModule())
-                .apiModuleForInfo(new ApiModuleForInfo())
+                .apiModuleForName(new ApiModuleForName())   // Module for movie name
+                .topMoviesModule(new TopMoviesModule())     // Feature module
+                .apiModuleForInfo(new ApiModuleForInfo())   // Module for movie country
                 .build();
     }
 

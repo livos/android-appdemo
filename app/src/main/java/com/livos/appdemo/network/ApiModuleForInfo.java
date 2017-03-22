@@ -37,5 +37,4 @@ public class ApiModuleForInfo {
     public MoreInfoApiService provideApiService() {
         return provideRetrofit(BASE_URL, provideClient()).create(MoreInfoApiService.class);
     }
-
 }

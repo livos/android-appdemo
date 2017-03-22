@@ -18,7 +18,10 @@ public class TopMoviesPresenter implements TopMoviesActivityMVP.Presenter {
     @Override
     public void loadData() {
 
-        subscription = model.result().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<ViewModel>() {
+        subscription = model.result()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ViewModel>() {
             @Override
             public void onCompleted() {
 
@@ -54,8 +57,6 @@ public class TopMoviesPresenter implements TopMoviesActivityMVP.Presenter {
 
     @Override
     public void setView(TopMoviesActivityMVP.View view) {
-
         this.view = view;
-
     }
 }

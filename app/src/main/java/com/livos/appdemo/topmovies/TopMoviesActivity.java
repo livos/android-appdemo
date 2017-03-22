@@ -23,8 +23,6 @@ import butterknife.ButterKnife;
 
 public class TopMoviesActivity extends AppCompatActivity implements TopMoviesActivityMVP.View {
 
-    private final String TAG = TopMoviesActivity.class.getName();
-
     @BindView(R.id.rv_movies)
     RecyclerView recyclerView;
 
