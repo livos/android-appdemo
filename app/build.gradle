@@ -76,26 +76,4 @@ dependencies {
     compile "io.reactivex:rxandroid:$rxandroidVersion"
     compile "io.reactivex:rxjava:$rxjavaVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
-
-    //Testing
-    testCompile "junit:junit:$junitVersion"
-    testCompile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    testCompile "com.android.support:design:$supportLibraryVersion"
-    testCompile "org.mockito:mockito-android:$mockitoVersion"
-    testCompile "org.robolectric:robolectric:$robolectricVersion"
-    androidTestCompile "junit:junit:$junitVersion"
-    androidTestCompile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    androidTestCompile "com.android.support:design:$supportLibraryVersion"
-    androidTestCompile "com.android.support:support-annotations:$supportLibraryVersion"
-    androidTestCompile "com.android.support.test:runner:$junitRunnerVersion"
-    androidTestCompile "com.android.support.test:rules:$junitRunnerVersion"
-    androidTestCompile "org.mockito:mockito-android:$mockitoVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
-    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
-        exclude group: 'com.android.support', module: 'support-annotations'
-        exclude module: 'recyclerview-v7'
-        exclude module: 'support-v4'
-    }
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
-    provided 'javax.annotation:jsr250-api:1.0'
 }
